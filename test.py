@@ -1,40 +1,21 @@
-import classe
-import random as rdm
+import persoplans as pp
+import plan
 import graphique
-import simulation
 
 
-def genererPlan():
-    plan=classe.Plan()
-    tab=[]
-    for i in range(10):
-        Chassee=classe.Chassee()
-        [x, y]=[rdm.uniform(-100, 100), rdm.uniform(-100, 100)]
-        Chassee.position=[x, y]
-        tab+=[Chassee]
-    plan.tabChassee=tab
-    tab = []
-    for i in range(10):
-        Chassee = classe.Chassee()
-        [x, y] = [rdm.uniform(-100, 100), rdm.uniform(-100, 100)]
-        Chassee.position = [x, y]
-        tab += [Chassee]
-    plan.tabChassee = tab
-    return
 
-def generercoorandoms():
-    [x, y]=[rdm.uniform(-100, 100), rdm.uniform(-100, 100)]
-    return [x,y]
+def creersimulation():
+    for i in range(100):
+        nv = pp.Chasseur()
+        nv1 = pp.Fruit()
+        nv2 = pp.Vegetarien()
+    while True:
+        plan.plan.actualisertabvecteurs()
+        plan.plan.actualiserplan()
+        plan.plan.spawnfruit()
+        plan.plan.deplacement()
+        graphique.montrerChassee()
 
-class Test:
-    "classe de test"
 
-    def __init__(self):
-        self.test=0
 
-    def increase(self):
-        self.test+=1
-        return self.test
-
-j=simulation.Jeu()
-j.lancersimulation(50)
+creersimulation()

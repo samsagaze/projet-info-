@@ -1,13 +1,12 @@
 import matplotlib.pyplot as plt
-import classe
+import plan
 
-
-def montrerChassee(plan):
-    tabChassee=plan.dico.tabChassee
+def montrerChassee():
+    dicovege=plan.plan.dicovegetarien
     tx=[]
     ty=[]
-    for i in tabChassee:
-        [xi, yi]=i.position
+    for i in dicovege:
+        [xi, yi]=dicovege[i].position
         tx+=[xi]
         ty+=[yi]
     plt.scatter(tx, ty)

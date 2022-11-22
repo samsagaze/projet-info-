@@ -1,17 +1,19 @@
 import geometrie as geo
 
-def sorttableauvecteur(tabvect):
-    tabdis=[]
-    n=len(tabvect)
-    for i in range(n):
-        vect=tabvect[i]
-        if vect==-1:
-            tabdis+=[[-1, i]]
-        else:
-            tabdis+=[geo.longeurvecteur(vect)]
-    tabdis.sort(reverse=True)
-    tabvecttrie=[[]]*n
-    for j in range(n):
-        tabvecttrie[j]=tabvect[tabdis[1]]
-    return tabvecttrie
-
+def sorttabvecteur(tabvecteur):     #permet de trier un tableau de vecteur du vecteur le plus court au vecteur le plus long
+    nvtab = []
+    dicovu = {}
+    for i in range(len(tabvecteur)):
+        mindis = 500
+        minindice = -1
+        for j in range(len(tabvecteur)):
+            [indice, vecteur] = tabvecteur[j]
+            if not (indice in dicovu):
+                dis = geo.longeurvecteur(vecteur)
+                if dis < mindis:
+                    mindis = dis
+                    minindice = indice
+        if minindice<len(tabvecteur):
+            nvtab.append([minindice, tabvecteur[minindice]])
+            dicovu[minindice] = True
+    return nvtab
