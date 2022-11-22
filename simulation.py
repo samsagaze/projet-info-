@@ -5,18 +5,18 @@ class Jeu:
 
     def __init__(self):
         self.plan = c.Plan()
-        self.chassee = 100
-        self.chasseur = 100
+        self.chassee = 1
+        self.chasseur = 1
         self.fruit = 1000
         self.nbgenerations = 0
 
-    def initialiserplan(self):
-        self.plan.spawnChasseur(self.chasseur)
+    def initialiserplan(self, nb):
+        self.plan.spawnChasseur(nb)
         self.plan.spawnFruit(self.fruit)
-        self.plan.spawnChassee(self.chassee)
+        self.plan.spawnChassee(nb)
 
-    def lancersimulation(self):
-        self.initialiserplan()
+    def lancersimulation(self, nb):
+        self.initialiserplan(nb)
         while True:
             self.plan.actualiserplan()
             self.plan.actualiserchasseurchassee()

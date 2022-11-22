@@ -8,7 +8,7 @@ def sorttableauvecteur(tabvect):
         if vect==-1:
             tabdis+=[[-1, i]]
         else:
-            tabdis+=geo.longeurvecteur(vect)
+            tabdis+=[geo.longeurvecteur(vect)]
     tabdis.sort(reverse=True)
     tabvecttrie=[[]]*n
     for j in range(n):

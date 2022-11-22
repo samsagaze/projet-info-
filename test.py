@@ -37,4 +37,4 @@ class Test:
         return self.test
 
 j=simulation.Jeu()
-j.lancersimulation()
+j.lancersimulation(50)

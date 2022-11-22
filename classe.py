@@ -206,20 +206,20 @@ class Chassee:
     def division(self, plan):
         [x, y] = self.position
         e = self.energie
-        i = Chassee()
-        i.coefficientsvecteurs.Chasseurcoefficients = self.coefficientsvecteurs.Chasseurcoefficients.copy()
-        i.coefficientsvecteurs.Chasseecoefficients = self.coefficientsvecteurs.Chasseecoefficients.copy()
-        i.coefficientsvecteurs.Fruitscoefficients = self.coefficientsvecteurs.Fruitscoefficients.copy()
-        i.coefficientsvecteurs.mutation()
+        chassee = Chassee()
+        chassee.coefficientsvecteurs.Chasseurcoefficients = self.coefficientsvecteurs.Chasseurcoefficients.copy()
+        chassee.coefficientsvecteurs.Chasseecoefficients = self.coefficientsvecteurs.Chasseecoefficients.copy()
+        chassee.coefficientsvecteurs.Fruitscoefficients = self.coefficientsvecteurs.Fruitscoefficients.copy()
+        chassee.coefficientsvecteurs.mutation()
         ep = (e - self.cout) / 2
         self.energie = ep
-        i.energie = ep
+        chassee.energie = ep
         [xe, ye] = self.ecartement
         xep = rdm.uniform(-xe, xe) / 2
         yep = rdm.uniform(-ye, ye) / 2
         self.deplacement(x + xep, y + yep)
-        i.deplacement(x - xep, y - yep)
-        plan.dico.nouveauChassee(i)
+        chassee.deplacement(x - xep, y - yep)
+        plan.dico.nouveauChassee(chassee)
 
     def deplacementdirection(self, vecteur):
         [x, y] = self.position
